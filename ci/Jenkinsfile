@@ -10,6 +10,11 @@ pipeline {
             steps {
                 sh 'python3 -m unittest test_point_manager'
             }
+            post {
+                always {
+                    junit 'test-reports/*.xml'
+                }
+            }
         }
     }
 }

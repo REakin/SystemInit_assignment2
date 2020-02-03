@@ -1,4 +1,5 @@
 import unittest
+import xmlrunner
 from point import Point
 from point_manager import PointManager
 import inspect
@@ -112,3 +113,9 @@ class TestPointManager(unittest.TestCase):
 
         all_points = self.points_mgr.get_all_points()
         self.assertEqual(len(all_points), 2)
+
+
+if __name__ == "__main__":
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
+    unittest.main(testRunner=runner)
+    unittest.main()
