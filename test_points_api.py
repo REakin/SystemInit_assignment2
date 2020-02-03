@@ -29,7 +29,20 @@ class TestPointApi(unittest.TestCase):
         print('in %s - %s()' % (currentTest, callingFunction)) 
     def test_points_all(self):
         rv = self.app.get('/points/all')
+        self.assertEqual(rv.status, '200 OK')
+
+    def test_points_all(self): 
+        rv = self.app.get('/points/all') 
         self.assertEqual(rv.status, '200 OK') 
+    
+    def test_post_get_point(self): 
+        rv_post = self.app.post('/points', json={ "x": 5, "y": 5},  
+                                headers={"content-type": 
+                                         "application/json"}) 
+        self.assertEqual(rv_post.status, '200 OK') 
+        
+        rv_get = self.app.get('/points/all') 
+        self.assertEqual(rv_get.status, '200 OK')
 if __name__ == "__main__":
     runner = xmlrunner.XMLTestRunner(output='api-test-reports')
     unittest.main(testRunner=runner)
