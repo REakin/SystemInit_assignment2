@@ -9,7 +9,7 @@ from base import Base
 class TestPointApi(unittest.TestCase): 
     def setUp(self):
         engine = create_engine('sqlite:///test_points.sqlite')
-        # Creates all the tables
+        # Creates all the table
         Base.metadata.create_all(engine)
         Base.metadata.bind = engine
         
