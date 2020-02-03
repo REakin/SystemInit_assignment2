@@ -30,7 +30,7 @@ class TestPointApi(unittest.TestCase):
     def test_points_all(self):
         rv = self.app.get('/points/all')
         self.assertEqual(rv.status, '200 OK') 
- if __name__ == "__main__":
+if __name__ == "__main__":
     runner = xmlrunner.XMLTestRunner(output='api-test-reports')
     unittest.main(testRunner=runner)
     unittest.main() 
