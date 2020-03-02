@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Lint test') {
             steps {
-                pylint-fail-under 5.0  ../**/*.py
+                pylint-fail-under --fail_under 5.0  ../**/*.py
             }
         }
         stage('Unit Test') {
